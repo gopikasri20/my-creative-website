@@ -23,7 +23,6 @@
             min-height:100vh;
         }
 
-        /* SIDEBAR */
         .sidebar{
             width:260px;
             background:linear-gradient(180deg,#ff6a00,#ee0979);
@@ -53,14 +52,13 @@
         .education{ background:#5f27cd; }
         .interest{ background:#feca57; color:black; }
 
-        /* CONTENT */
         .content{
             flex:1;
             padding:35px;
         }
 
         section{
-            display:none; /* All sections hidden by default */
+            display:none;
             padding:30px;
             border-radius:18px;
             box-shadow:0 10px 20px rgba(0,0,0,0.18);
@@ -79,7 +77,6 @@
             padding-bottom:8px;
         }
 
-        /* PERSONAL SECTION LAYOUT */
         .personal-container{
             display:flex;
             justify-content:space-between;
@@ -112,11 +109,6 @@
             cursor:pointer;
         }
 
-        .profile-photo input{
-            display:none;
-        }
-
-        /* SKILLS */
         .skill{
             margin:14px 0;
             font-weight:bold;
@@ -139,7 +131,6 @@
             font-size:14px;
         }
 
-        /* TABLE */
         table{
             width:100%;
             border-collapse:collapse;
@@ -148,15 +139,14 @@
             color:white;
         }
 
-        th{
-            background:rgba(0,0,0,0.3);
-            color:white;
-        }
-
         th,td{
             border:1px solid rgba(255,255,255,0.3);
             padding:8px;
             text-align:center;
+        }
+
+        th{
+            background:rgba(0,0,0,0.3);
         }
 
         tr:nth-child(even){
@@ -180,35 +170,6 @@
             });
             document.getElementById(id).style.display="block";
         }
-
-        // Profile photo upload
-        document.addEventListener('DOMContentLoaded',function(){
-            const profileImg = document.getElementById('profilePhoto');
-            const uploadInput = document.getElementById('uploadPhoto');
-
-            // Load saved photo from localStorage
-            const savedPhoto = localStorage.getItem('profilePhoto');
-            if(savedPhoto){
-                profileImg.src = savedPhoto;
-            }
-
-            // Click photo to upload
-            profileImg.addEventListener('click',()=>{
-                uploadInput.click();
-            });
-
-            uploadInput.addEventListener('change', function(e){
-                const file = e.target.files[0];
-                if(file){
-                    const reader = new FileReader();
-                    reader.onload = function(evt){
-                        profileImg.src = evt.target.result;
-                        localStorage.setItem('profilePhoto', evt.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                }
-            });
-        });
     </script>
 </head>
 
@@ -218,7 +179,6 @@
 
 <div class="container">
 
-    <!-- SIDEBAR -->
     <div class="sidebar">
         <div class="menu personal" onclick="showSection('personal')">Personal Details</div>
         <div class="menu skills" onclick="showSection('skills')">Skills</div>
@@ -226,7 +186,6 @@
         <div class="menu interest" onclick="showSection('interest')">Interest</div>
     </div>
 
-    <!-- CONTENT -->
     <div class="content">
 
         <!-- PERSONAL -->
@@ -236,15 +195,15 @@
                 <div class="personal-info">
                     <p><b>Name:</b> M.Gopikasri</p>
                     <p><b>Age:</b> 19</p>
-                    <p><b>Email:</b> mgopikasri@gmail.com</p>
+                    <p><b>Email:</b> mgopikasri26@gmail.com</p>
                     <p><b>Phone:</b> 9597268931</p>
-                    <p><b>Address:</b> Kovilpatti</p>
+                    <p><b>Address:</b> 125E/1 Pasumpon Nagar, Illuppaiyurani, Kovilpatti</p>
                     <p><b>Father:</b> V.Mariappan</p>
                     <p><b>Mother:</b> M.Shenbagavalli</p>
                     <p><b>Brother:</b> M.Kathiravan</p>
                 </div>
                 <div class="profile-photo">
-                    <img id="profilePhoto" src="images.jpg" alt="Profile Photo">
+                    <img src="images.jpg" alt="Profile Photo">
                 </div>
             </div>
         </section>
@@ -267,56 +226,55 @@
                     <div class="skill-progress" style="width:75%;background:#f1c40f;">75%</div>
                 </div>
             </div>
-            <div class="skill">PHP
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width:80%;background:#9b59b6;">80%</div>
-                </div>
-            </div>
-            <div class="skill">MySQL
-                <div class="skill-bar">
-                    <div class="skill-progress" style="width:70%;background:#16a085;">70%</div>
-                </div>
-            </div>
             <div class="skill">Python
                 <div class="skill-bar">
                     <div class="skill-progress" style="width:65%;background:#2980b9;">65%</div>
                 </div>
             </div>
-            <div class="skill">C Programming
+            <div class="skill">C programming
                 <div class="skill-bar">
                     <div class="skill-progress" style="width:60%;background:#d35400;">60%</div>
-                </div>
+                     </div>
             </div>
-        </section>
-
-        <!-- EDUCATION -->
+             </section>
+    <!-- EDUCATION -->
         <section id="education">
             <h2>Educational Qualification</h2>
             <table>
                 <tr>
                     <th>School / College</th>
                     <th>Class / Semester</th>
-                    <th>Marks</th>
+                    <th>Marks / CGPA</th>
                 </tr>
                 <tr>
-                    <td>Everest Mariappa Nadar Higher Secondary School</td>
+                    <td>Everest Mariappa Nadar HSS</td>
                     <td>10th</td>
                     <td>79%</td>
                 </tr>
                 <tr>
-                    <td>Everest Mariappa Nadar Higher Secondary School</td>
+                    <td>Everest Mariappa Nadar HSS</td>
                     <td>11th</td>
                     <td>60%</td>
                 </tr>
                 <tr>
-                    <td>Everest Mariappa Nadar Higher Secondary School</td>
+                    <td>Everest Mariappa Nadar HSS</td>
                     <td>12th</td>
                     <td>75%</td>
                 </tr>
                 <tr>
                     <td>G. Venkataswamy Naidu College</td>
-                    <td>3</td>
-                    <td>82%</td>
+                    <td>Semester 1</td>
+                    <td>78%</td>
+                </tr>
+                <tr>
+                    <td>G. Venkataswamy Naidu College</td>
+                    <td>Semester 2</td>
+                    <td>88%</td>
+                </tr>
+                <tr>
+                    <td>G. Venkataswamy Naidu College</td>
+                    <td>Semester 3</td>
+                    <td>79%</td>
                 </tr>
             </table>
         </section>
